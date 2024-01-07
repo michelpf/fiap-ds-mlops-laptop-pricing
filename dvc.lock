@@ -5,8 +5,8 @@ stages:
     deps:
     - path: src/data/make_dataset.py
       hash: md5
-      md5: 2de668ec3e6dd3f2b53ece5295f33177
-      size: 5965
+      md5: a2dcf54ac2f7430b55658fec6cffe00a
+      size: 5967
     outs:
     - path: data/processed/latptop-pricing.csv
       hash: md5

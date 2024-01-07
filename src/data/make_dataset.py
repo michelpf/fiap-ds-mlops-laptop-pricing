@@ -23,6 +23,7 @@ def main(input_filepath, output_filepath):
 
     logger.info('Converting in lower cases the attribute fields.')
 
+
     df_transformed = df.copy()
     df_transformed = df_transformed.astype(str).apply(lambda x: x.str.lower())
 

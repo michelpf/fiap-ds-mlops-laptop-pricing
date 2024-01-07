@@ -70,7 +70,7 @@ def main(input_filepath, output_filepath):
         logger.info('Model serialization.')
         joblib.dump(model, output_filepath)
 
-        live.log_artifact(output_filepath, type="model", name="linear_regression")
+        live.log_artifact(output_filepath, type="model", name="laptop-pricing", desc="Model to predict laptop pricing.", labels=["regression"])
 
         logger.info('Process finished.')
 
