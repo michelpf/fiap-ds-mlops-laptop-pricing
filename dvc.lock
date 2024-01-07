@@ -1,0 +1,30 @@
+schema: '2.0'
+stages:
+  process:
+    cmd: python -m src.data.make_dataset ./data/raw/laptopPrice.csv ./data/processed/latptop-pricing.csv
+    deps:
+    - path: src/data/make_dataset.py
+      hash: md5
+      md5: 2de668ec3e6dd3f2b53ece5295f33177
+      size: 5965
+    outs:
+    - path: data/processed/latptop-pricing.csv
+      hash: md5
+      md5: 8caf42dc674d02c909fd2a7f5273aaef
+      size: 223499
+  train:
+    cmd: python -m src.models.train_model ./data/processed/latptop-pricing.csv ./models/model.pkl
+    deps:
+    - path: data/processed/latptop-pricing.csv
+      hash: md5
+      md5: 8caf42dc674d02c909fd2a7f5273aaef
+      size: 223499
+    - path: src/models/train_model.py
+      hash: md5
+      md5: 28d9c1c9bfeb7436b9e7c28ce01b0b96
+      size: 2992
+    outs:
+    - path: models/model.pkl
+      hash: md5
+      md5: 657bc58f7653ee5c1d20cfb49cc461c3
+      size: 2576

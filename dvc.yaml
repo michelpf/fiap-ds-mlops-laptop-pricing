@@ -1,0 +1,25 @@
+stages:
+  process:
+    cmd: python -m src.data.make_dataset ./data/raw/laptopPrice.csv ./data/processed/latptop-pricing.csv
+    deps:
+    - src/data/make_dataset.py
+    outs:
+    - data/processed/latptop-pricing.csv
+
+  train:
+    cmd: python -m src.models.train_model ./data/processed/latptop-pricing.csv ./models/model.pkl
+    deps:
+    - src/models/train_model.py
+    - data/processed/latptop-pricing.csv
+    outs:
+    - models/model.pkl
+
+metrics:
+- dvclive/metrics.json
+plots:
+- dvclive/plots/metrics:
+    x: step
+artifacts:
+  linear_regression:
+    path: models/model.pkl
+    type: model
