@@ -14,12 +14,6 @@ stages:
     outs:
     - models/model.pkl
 
-metrics:
-- dvclive/metrics.json
-plots:
-- dvclive/plots/metrics:
-    x: step
-    
 artifacts:
   laptop-pricing:
     path: models/model.pkl
