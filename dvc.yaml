@@ -1,16 +1,16 @@
 stages:
   process:
-    cmd: python -m src.data.make_dataset ./data/raw/laptopPrice.csv ./data/processed/latptop-pricing.csv
+    cmd: python -m src.data.make_dataset ./data/raw/laptopPrice.csv ./data/processed/laptop-pricing.csv
     deps:
     - src/data/make_dataset.py
     outs:
-    - data/processed/latptop-pricing.csv
+    - data/processed/laptop-pricing.csv
 
   train:
-    cmd: python -m src.models.train_model ./data/processed/latptop-pricing.csv ./models/model.pkl
+    cmd: python -m src.models.train_model ./data/processed/laptop-pricing.csv ./models/model.pkl
     deps:
     - src/models/train_model.py
-    - data/processed/latptop-pricing.csv
+    - data/processed/laptop-pricing.csv
     outs:
     - models/model.pkl
 

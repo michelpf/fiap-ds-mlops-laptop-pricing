@@ -101,7 +101,7 @@ def main(input_filepath, output_filepath):
 
     logger.info('Export to csv file.')
 
-    df_transformed.to_csv(output_filepath)
+    df_transformed.to_csv(output_filepath, index=False)
 
     logger.info('Process finished.')
 

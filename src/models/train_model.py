@@ -34,6 +34,9 @@ def main(input_filepath, output_filepath):
         features = list(df.columns)
         features.remove("price")
         
+        logger.info('Number of features: ' + str(len(features)))
+        logger.info('Features: ' + str(features))
+
         X = df[features]
         y = df["price"]
 
