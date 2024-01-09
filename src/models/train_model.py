@@ -4,13 +4,12 @@ import logging
 from pathlib import Path
 
 import pandas as pd
-import numpy as np
 
 from dotenv import find_dotenv, load_dotenv
 
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import Ridge
 import joblib
 
 import matplotlib.pyplot as plt
@@ -42,10 +41,10 @@ def main(input_filepath, output_filepath):
 
         logger.info('Split the data for training and testing')
 
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+        X_train, X_test, y_train, y_test = train_test_split(X.values, y.values, test_size=0.3, random_state=42)
 
         logger.info('Model is based on Linear regression.')
-        model = LinearRegression(fit_intercept=True)
+        model = Ridge()
 
         logger.info('Starting model training.')
         model.fit(X_train, y_train)
