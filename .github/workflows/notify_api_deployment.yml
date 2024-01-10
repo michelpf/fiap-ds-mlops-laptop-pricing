@@ -13,10 +13,11 @@ jobs:
       - name: Deploy Stage
         uses: actions/github-script@v5
         with:
+            github-token: ${{ secrets.ACCESS_TOKEN }}
             script: |
                 await github.rest.actions.createWorkflowDispatch({
-                'michelpf',
-                'fiap-ds-mlops-api-laptop-pricing/',
-                'workflows/deploy.yml',
-                'master'
-                });
+                    owner: "michelpf",
+                    repo: "fiap-ds-mlops-api-laptop-pricing",
+                    workflow_id: "deploy.yml",
+                    ref: "master"
+                })
