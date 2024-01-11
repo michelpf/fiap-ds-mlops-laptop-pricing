@@ -1,4 +1,4 @@
-name: model-training-publish
+name: Train the model then publish to be versioned
 
 on: 
   push:
@@ -45,8 +45,10 @@ jobs:
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          dvc metrics show --md >> report.md
-
+          run: echo ‘### Results of model:’ >> $GITHUB_STEP_SUMMARY
+        
+          dvc metrics show --md  >> $GITHUB_STEP_SUMMARY
+          
           # Add figure to the report
-          echo "![](./reports/figures/true_vs_predicted.png)" >> report.md
+          echo "![](./reports/figures/true_vs_predicted.png)"  >> $GITHUB_STEP_SUMMARY
           cml comment create report.md

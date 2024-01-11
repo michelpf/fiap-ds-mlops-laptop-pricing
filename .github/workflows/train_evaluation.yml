@@ -1,4 +1,4 @@
-name: model-training
+name: Train the proposed model for approval
 on: 
   pull_request:
   
