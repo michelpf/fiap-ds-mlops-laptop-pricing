@@ -42,5 +42,7 @@ jobs:
           dvc metrics diff --md master > report.md
 
           # Add figure to the report
-          cml publish ./reports/figures/true_vs_predicted.png --md >> report.md
+          echo "![](./reports/figures/true_vs_predicted.png)" >> report.md
           cml comment create report.md
+
+          
