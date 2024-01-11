@@ -38,14 +38,11 @@ jobs:
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "## MODEL METRICS" > report.md
-          cat metrics.txt >> report.md
+          git fetch --depth=1 origin master:master
+          dvc metrics diff --show-md master >> report.md
 
-          echo "## Data Viz" >> report.md
-          echo 'edited' >> report.md
-          echo "![](./feature_importance.png)" >> report.md
-          echo "![](./residuals.png)" >> report.md
-
+          # Add figure to the report
+          echo "![](./reports/figures/true_vs_predicted.png)" >> report.md
           cml comment create report.md
 
           
