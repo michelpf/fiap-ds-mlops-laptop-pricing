@@ -11,13 +11,17 @@ jobs:
 
       - uses: actions/checkout@v3
       - uses: iterative/setup-cml@v1
-      - name: Train model
+      - name: Install dependencies
         env:
           repo_token: ${{ secrets.ACCESS_TOKEN }}
         run: |
           pip install -r requirements.txt
-          dvc repro 
+      
+      - name: Training
+        run: dvc repro 
 
+      - name: Generating report
+        run: |
           git fetch --prune
           dvc metrics diff --show-md master > report.md
 
