@@ -23,8 +23,6 @@ jobs:
           aws-region: us-east-1
       
       - name: Install dependencies
-        env:
-          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pip install -r requirements.txt
       
@@ -37,6 +35,8 @@ jobs:
           dvc repro 
 
       - name: Generating report
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git fetch --prune
           dvc metrics diff --md master > report.md
