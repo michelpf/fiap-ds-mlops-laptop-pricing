@@ -1,4 +1,4 @@
-[![model-training](https://github.com/michelpf/fiap-ds-mlops-laptop-pricing/actions/workflows/train_evaluation.yml/badge.svg)](https://github.com/michelpf/fiap-ds-mlops-laptop-pricing/actions/workflows/train_evaluation.yml)
+[![Notifiy deployment of new api version](https://github.com/michelpf/fiap-ds-mlops-laptop-pricing/actions/workflows/notify_api_deployment.yml/badge.svg)](https://github.com/michelpf/fiap-ds-mlops-laptop-pricing/actions/workflows/notify_api_deployment.yml)
 
 # Laptop Pricing Model
 
