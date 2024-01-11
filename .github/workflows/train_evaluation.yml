@@ -6,6 +6,9 @@ jobs:
 
     permissions:
       id-token: write
+      contents: write
+      pull-requests: write
+      
 
     steps:
       - name: Configure Python environment
