@@ -3,6 +3,10 @@ stages:
   process:
     cmd: python -m src.data.make_dataset data/raw/laptopPrice.csv data/processed/laptop-pricing.csv
     deps:
+    - path: data/raw/laptopPrice.csv
+      hash: md5
+      md5: d24a79d72406369abae616bafc2545eb
+      size: 93007
     - path: src/data/make_dataset.py
       hash: md5
       md5: 489653924a63a1968260394834ddd43b
