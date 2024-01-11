@@ -24,7 +24,7 @@ jobs:
       
       - name: Install dependencies
         env:
-          repo_token: ${{ github.token }}
+          REPO_TOKEN: ${{ github.token }}
         run: |
           pip install -r requirements.txt
       
