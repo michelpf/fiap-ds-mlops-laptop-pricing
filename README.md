@@ -1,10 +1,10 @@
-fiap-ds-mlops-laptop-pricing
-==============================
+[![model-training](https://github.com/michelpf/fiap-ds-mlops-laptop-pricing/actions/workflows/train_evaluation.yml/badge.svg)](https://github.com/michelpf/fiap-ds-mlops-laptop-pricing/actions/workflows/train_evaluation.yml)
 
-Regression model to predict price of laptops given its conditions.
+# Laptop Pricing Model
 
-Project Organization
-------------
+Regression model to predict the price of laptops given its conditions.
+
+## Project Organization
 
     ├── LICENSE
     ├── Makefile           <- Makefile with commands like `make data` or `make train`
