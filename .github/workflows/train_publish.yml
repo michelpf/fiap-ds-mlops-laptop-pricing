@@ -1,0 +1,52 @@
+name: model-training-publish
+
+on: 
+  push:
+    branches: [ "master" ]
+  
+jobs:
+  train_evaluate_model:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: write
+      pull-requests: write
+      
+
+    steps:
+      - name: Configure Python environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10' 
+
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::989944764342:role/GithubActionsRole
+          aws-region: us-east-1
+      
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+      
+      - name: Install DVC library
+        uses: iterative/setup-cml@v2
+
+      - name: Training
+        run: |
+          dvc pull
+          dvc repro 
+
+      - name: Generating report
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          dvc metrics show --md master >> report.md
+
+          # Add figure to the report
+          echo "![](./reports/figures/true_vs_predicted.png)" >> report.md
+          cml comment create report.md
