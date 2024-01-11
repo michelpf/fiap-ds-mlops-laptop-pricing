@@ -4,8 +4,12 @@ jobs:
   train_evaluate_model:
     runs-on: ubuntu-latest
     steps:
+      - name: Configure Python environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10' 
+
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
       - uses: iterative/setup-cml@v1
       - name: Train model
         env:
