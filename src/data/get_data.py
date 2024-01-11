@@ -22,7 +22,6 @@ def main(s3_bucket, s3_object, output_filepath):
 
     s3 = boto3.client('s3')
 
-
     s3.download_file(s3_bucket, s3_object, output_filepath)
 
     logger.info('Data download successfully.')
