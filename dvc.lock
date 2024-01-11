@@ -30,3 +30,13 @@ stages:
       size: 915
   get_data:
     cmd: python -m src.data.get_data fiap-ds-mlops dataset/laptopPrice.csv data/raw/laptopPrice.csv
+    deps:
+    - path: src/data/get_data.py
+      hash: md5
+      md5: 30e69f2f4d5f2f9e13dacab9d46e08fd
+      size: 1261
+    outs:
+    - path: data/raw/laptopPrice.csv
+      hash: md5
+      md5: d24a79d72406369abae616bafc2545eb
+      size: 93007
