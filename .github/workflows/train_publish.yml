@@ -45,10 +45,11 @@ jobs:
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          run: echo ‘### Results of model:’ >> $GITHUB_STEP_SUMMARY
+          echo "### Results of model:"" >> $GITHUB_STEP_SUMMARY
         
           dvc metrics show --md  >> $GITHUB_STEP_SUMMARY
           
           # Add figure to the report
           echo "![](./reports/figures/true_vs_predicted.png)"  >> $GITHUB_STEP_SUMMARY
+          
           cml comment create report.md
