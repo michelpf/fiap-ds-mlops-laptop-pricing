@@ -3,6 +3,10 @@ on: [push]
 jobs:
   train_evaluate_model:
     runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      
     steps:
       - name: Configure Python environment
         uses: actions/setup-python@v5
