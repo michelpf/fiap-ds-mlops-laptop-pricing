@@ -1,4 +1,7 @@
 stages:
+  get_data:
+    cmd: python -m src.data.get_data fiap-ds-mlops dataset/laptopPrice.csv data/raw/laptopPrice.csv
+
   process:
     cmd: python -m src.data.make_dataset data/raw/laptopPrice.csv data/processed/laptop-pricing.csv
     deps:

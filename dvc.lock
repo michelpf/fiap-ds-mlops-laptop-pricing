@@ -1,7 +1,7 @@
 schema: '2.0'
 stages:
   process:
-    cmd: python -m src.data.make_dataset ./data/raw/laptopPrice.csv ./data/processed/laptop-pricing.csv
+    cmd: python -m src.data.make_dataset data/raw/laptopPrice.csv data/processed/laptop-pricing.csv
     deps:
     - path: src/data/make_dataset.py
       hash: md5
@@ -13,7 +13,7 @@ stages:
       md5: 61faece87cb38964467e56deed575c4f
       size: 220487
   train:
-    cmd: python -m src.models.train_model ./data/processed/laptop-pricing.csv ./models/model.pkl
+    cmd: python -m src.models.train_model data/processed/laptop-pricing.csv models/model.pkl
     deps:
     - path: data/processed/laptop-pricing.csv
       hash: md5
@@ -28,3 +28,5 @@ stages:
       hash: md5
       md5: 01fa17d995c0cad1d551b1c13d22f843
       size: 915
+  get_data:
+    cmd: python -m src.data.get_data fiap-ds-mlops dataset/laptopPrice.csv data/raw/laptopPrice.csv
