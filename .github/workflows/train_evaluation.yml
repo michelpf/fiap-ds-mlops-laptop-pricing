@@ -32,7 +32,9 @@ jobs:
         uses: iterative/setup-cml@v2
 
       - name: Training
-        run: dvc repro 
+        run: |
+          dvc pull
+          dvc repro 
 
       - name: Generating report
         run: |
