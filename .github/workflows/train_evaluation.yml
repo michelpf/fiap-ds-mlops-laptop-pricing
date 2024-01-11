@@ -39,9 +39,8 @@ jobs:
       - name: Generating report
         run: |
           git fetch --prune
-          dvc metrics diff --show-md master > report.md
+          dvc metrics diff --md master > report.md
 
           # Add figure to the report
-          echo "## Validating results by region"
           cml-publish ./reports/figures/true_vs_predicted.png --md >> report.md
           cml-send-comment report.md
