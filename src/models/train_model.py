@@ -31,6 +31,7 @@ def main(input_filepath, output_filepath):
         df = pd.read_csv(input_filepath)
         
         features = list(df.columns)
+        
         features.remove("price")
         
         logger.info('Number of features: ' + str(len(features)))
