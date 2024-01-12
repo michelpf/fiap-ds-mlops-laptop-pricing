@@ -23,6 +23,7 @@ stages:
     - models/model.pkl
     - reports/figures/true_vs_predicted.png
 
+
 artifacts:
   laptop-pricing:
     path: models/model.pkl
