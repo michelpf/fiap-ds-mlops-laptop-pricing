@@ -25,17 +25,13 @@ stages:
       size: 220487
     - path: src/models/train_model.py
       hash: md5
-      md5: 79432a6e94f49838136478ac3142db09
-      size: 3154
+      md5: bf1454e67e050acace58e98ebd4fe017
+      size: 3316
     outs:
     - path: models/model.pkl
       hash: md5
-      md5: 01fa17d995c0cad1d551b1c13d22f843
-      size: 915
-    - path: reports/figures/true_vs_predicted.png
-      hash: md5
-      md5: ceb72d562ee54d5dca8e46f31d0993a3
-      size: 21635
+      md5: a36980edbc1430e06e5c7a3b05adc918
+      size: 961020
   get_data:
     cmd: python -m src.data.get_data fiap-ds-mlops dataset/laptopPrice.csv data/raw/laptopPrice.csv
     deps:
