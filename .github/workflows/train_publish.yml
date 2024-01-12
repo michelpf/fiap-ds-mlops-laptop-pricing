@@ -52,4 +52,4 @@ jobs:
           # Add figure to the report
           echo "![](./reports/figures/true_vs_predicted.png)"  >> $GITHUB_STEP_SUMMARY
 
-          cml comment create report.md
+          
