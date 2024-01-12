@@ -9,7 +9,9 @@ from dotenv import find_dotenv, load_dotenv
 
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import Ridge
+
+import xgboost as xgb
+
 import joblib
 
 import matplotlib.pyplot as plt
@@ -45,7 +47,10 @@ def main(input_filepath, output_filepath):
         X_train, X_test, y_train, y_test = train_test_split(X.values, y.values, test_size=0.3, random_state=42)
 
         logger.info('Model is based on Linear regression.')
-        model = Ridge()
+        model = xgb.XGBRegressor(learning_rate = 0.015,
+                           n_estimators  = 700,
+                           max_depth     = 4,
+                           eval_metric='mae')
 
         logger.info('Starting model training.')
         model.fit(X_train, y_train)

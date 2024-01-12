@@ -9,3 +9,4 @@ python-dotenv == 1.0.0
 dvclive == 3.5.1
 dvc-s3 == 3.0.1
 boto3 == 1.33.12
+xgboost == 2.0.3
