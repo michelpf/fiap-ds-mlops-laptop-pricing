@@ -48,6 +48,5 @@ jobs:
 
           # Add figure to the report
           echo "![](./reports/figures/true_vs_predicted.png)" >> report.md
-          cml comment create report.md
-
+       
           

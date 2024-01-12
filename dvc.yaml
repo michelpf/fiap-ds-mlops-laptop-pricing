@@ -21,6 +21,7 @@ stages:
     - data/processed/laptop-pricing.csv
     outs:
     - models/model.pkl
+    - reports/figures/true_vs_predicted.png
 
 artifacts:
   laptop-pricing:
