@@ -50,6 +50,6 @@ jobs:
           dvc metrics show --md  >> $GITHUB_STEP_SUMMARY
           
           # Add figure to the report
-          echo "![](reports/figures/true_vs_predicted.png)"  >> $GITHUB_STEP_SUMMARY
+          echo "![](https://github.com/michelpf/fiap-ds-mlops-laptop-pricing/blob/master/reports/figures/true_vs_predicted.png)"  >> $GITHUB_STEP_SUMMARY
 
           
