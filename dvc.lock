@@ -44,3 +44,10 @@ stages:
       hash: md5
       md5: d24a79d72406369abae616bafc2545eb
       size: 93007
+  test:
+    cmd: python -m pytest
+    deps:
+    - path: models/model.pkl
+      hash: md5
+      md5: a36980edbc1430e06e5c7a3b05adc918
+      size: 961020

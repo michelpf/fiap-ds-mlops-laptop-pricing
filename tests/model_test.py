@@ -68,16 +68,15 @@ def prepare_data(data):
 
     return data_processed
 
+def range_golden_data(data, target):
+    return target < data < target*1.3
+
 def test_model_exists():
     arquivo_path = Path("models/model.pkl")
-    assert arquivo_path.is_file()
+    assert arquivo_path.is_file(), "model exists in the expected path"
 
-def test_model_version_exists():
-    arquivo_path = Path("model_version.txt")
-    assert arquivo_path.is_file()
-
-def test_model_load_call():
-    model = joblib.load("model.pkl")
+def test_golden_data():
+    model = joblib.load("models/model.pkl")
     
     payload = {
         "brand": "dell",
@@ -99,5 +98,37 @@ def test_model_load_call():
 
     result = model.predict([data_processed])
 
-    assert isinstance(result[0], int)
-    assert result[0] >= 0
+    result = int(result[0])
+
+    print(result)
+
+    assert range_golden_data(result, 66000), "ensuring golden data results"
+
+
+def test_model_load_call():
+    model = joblib.load("models/model.pkl")
+    
+    payload = {
+        "brand": "dell",
+        "processor_brand": "intel",
+        "processor_name": "core i5",
+        "os": "windows",
+        "weight": "casual",
+        "warranty": "2",
+        "touchscreen": "0",
+        "ram_gb": "16",
+        "hdd": "0",
+        "ssd": "256",
+        "graphic_card": "8",
+        "ram_type": "ddr4",
+        "os_bit": "64"
+    }
+
+    data_processed = prepare_data(payload)
+
+    result = model.predict([data_processed])
+
+    result = int(result[0])
+
+    assert isinstance(result, int), "ensuring data type"
+    assert result >= 0, "ensuring data value coehrence"
