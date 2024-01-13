@@ -7,3 +7,4 @@ python-dotenv == 1.0.0
 dvclive == 3.5.1
 dvc-s3 == 3.0.1
 xgboost == 2.0.3
+pytest == 7.4.4
