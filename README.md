@@ -1,10 +1,16 @@
 [![Notifiy deployment of new api version](https://github.com/michelpf/fiap-ds-mlops-laptop-pricing/actions/workflows/notify_api_deployment.yml/badge.svg)](https://github.com/michelpf/fiap-ds-mlops-laptop-pricing/actions/workflows/notify_api_deployment.yml)
+[![Train the model then publish to be versioned](https://github.com/michelpf/fiap-ds-mlops-laptop-pricing/actions/workflows/train_publish.yml/badge.svg)](https://github.com/michelpf/fiap-ds-mlops-laptop-pricing/actions/workflows/train_publish.yml)
+[![Train the proposed model for approval](https://github.com/michelpf/fiap-ds-mlops-laptop-pricing/actions/workflows/train_evaluation.yml/badge.svg)](https://github.com/michelpf/fiap-ds-mlops-laptop-pricing/actions/workflows/train_evaluation.yml)
 
-# Laptop Pricing Model
+# Modelo de Predição de Preço de Laptops
 
-Regression model to predict the price of laptops given its conditions.
+Modelo de regressão responsável por prever preços de laptops baseado em uma série de características.
 
-## Project Organization
+Este projeto foi baseado no boilerplate da DVC para projetos de machine learning.
+O template utilizado implementa o Cookiecutter e pode ser obtido em [cookiecutter data science project template](https://drivendata.github.io/cookiecutter-data-science)
+
+
+## Organização do projeto
 
     ├── LICENSE
     ├── Makefile           <- Makefile with commands like `make data` or `make train`
@@ -50,8 +56,3 @@ Regression model to predict the price of laptops given its conditions.
     │       └── visualize.py
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
-
-
---------
-
-Project based on the [cookiecutter data science project template](https://drivendata.github.io/cookiecutter-data-science)
