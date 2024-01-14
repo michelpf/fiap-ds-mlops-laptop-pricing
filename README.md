@@ -1,6 +1,5 @@
 [![Notifiy deployment of new api version](https://github.com/michelpf/fiap-ds-mlops-laptop-pricing/actions/workflows/notify_api_deployment.yml/badge.svg)](https://github.com/michelpf/fiap-ds-mlops-laptop-pricing/actions/workflows/notify_api_deployment.yml)
 [![Train the model then publish to be versioned](https://github.com/michelpf/fiap-ds-mlops-laptop-pricing/actions/workflows/train_publish.yml/badge.svg)](https://github.com/michelpf/fiap-ds-mlops-laptop-pricing/actions/workflows/train_publish.yml)
-[![Train the proposed model for approval](https://github.com/michelpf/fiap-ds-mlops-laptop-pricing/actions/workflows/train_evaluation.yml/badge.svg)](https://github.com/michelpf/fiap-ds-mlops-laptop-pricing/actions/workflows/train_evaluation.yml)
 
 # Modelo de Predição de Preço de Laptops
 
