@@ -21,11 +21,11 @@ stages:
     - data/processed/laptop-pricing.csv
     outs:
     - models/model.pkl
-  
+
   test:
     cmd: python -m pytest
     deps:
-     - models/model.pkl
+    - models/model.pkl
 
 
 artifacts:
