@@ -47,7 +47,7 @@ def main(input_filepath, output_filepath):
         X_train, X_test, y_train, y_test = train_test_split(X.values, y.values, test_size=0.3, random_state=42)
 
         logger.info('Model is based on Linear regression.')
-        model = xgb.XGBRegressor(learning_rate = 0.015,
+        model = xgb.XGBRegressor(learning_rate = 0.01,
                            n_estimators  = 700,
                            max_depth     = 4,
                            eval_metric='mae')

@@ -9,29 +9,29 @@ stages:
       size: 93007
     - path: src/data/make_dataset.py
       hash: md5
-      md5: 489653924a63a1968260394834ddd43b
-      size: 5980
+      md5: 422611cff1b8190091c0f4d88abc45a8
+      size: 5600
     outs:
     - path: data/processed/laptop-pricing.csv
       hash: md5
-      md5: 61faece87cb38964467e56deed575c4f
-      size: 220487
+      md5: c9948ee0457a3b0329dddec9780886ff
+      size: 55115
   train:
     cmd: python -m src.models.train_model data/processed/laptop-pricing.csv models/model.pkl
     deps:
     - path: data/processed/laptop-pricing.csv
       hash: md5
-      md5: 61faece87cb38964467e56deed575c4f
-      size: 220487
+      md5: c9948ee0457a3b0329dddec9780886ff
+      size: 55115
     - path: src/models/train_model.py
       hash: md5
-      md5: bf1454e67e050acace58e98ebd4fe017
-      size: 3316
+      md5: d53eb59bf8221b32d143a5f7f04f66a3
+      size: 3315
     outs:
     - path: models/model.pkl
       hash: md5
-      md5: a36980edbc1430e06e5c7a3b05adc918
-      size: 961020
+      md5: 67f8622299b6bfaa895167a2aa7e9a9f
+      size: 991690
   get_data:
     cmd: python -m src.data.get_data fiap-ds-mlops dataset/laptopPrice.csv data/raw/laptopPrice.csv
     deps:
@@ -49,5 +49,5 @@ stages:
     deps:
     - path: models/model.pkl
       hash: md5
-      md5: a36980edbc1430e06e5c7a3b05adc918
-      size: 961020
+      md5: 67f8622299b6bfaa895167a2aa7e9a9f
+      size: 991690

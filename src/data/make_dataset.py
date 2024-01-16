@@ -81,23 +81,14 @@ def main(input_filepath, output_filepath):
 
     logger.info('One-hot enconding of categorical data.')
 
-    df_transformed = pd.get_dummies(df_transformed, columns=["brand"], prefix="brand")
-    df_transformed = pd.get_dummies(df_transformed, columns=["processor_brand"], prefix="processor_brand")
-    df_transformed = pd.get_dummies(df_transformed, columns=["processor_name"], prefix="processor_name")
-
-    df_transformed = pd.get_dummies(df_transformed, columns=["os"], prefix="os")
-    df_transformed = pd.get_dummies(df_transformed, columns=["weight"], prefix="weight")
-    df_transformed = pd.get_dummies(df_transformed, columns=["warranty"], prefix="warranty")
-    df_transformed = pd.get_dummies(df_transformed, columns=["touchscreen"], prefix="touchscreen")
-    df_transformed = pd.get_dummies(df_transformed, columns=["ram_gb"], prefix="ram_gb")
-
-    df_transformed = pd.get_dummies(df_transformed, columns=["hdd"], prefix="hdd")
-    df_transformed = pd.get_dummies(df_transformed, columns=["ssd"], prefix="ssd")
-
-    df_transformed = pd.get_dummies(df_transformed, columns=["graphic_card_gb"], prefix="graphic_card_gb")
-    df_transformed = pd.get_dummies(df_transformed, columns=["ram_type"], prefix="ram_type")
-
-    df_transformed = pd.get_dummies(df_transformed, columns=["os_bit"], prefix="os_bit")
+    df_transformed = pd.get_dummies(df_transformed, dtype=int, columns=["brand"], prefix="brand")
+    df_transformed = pd.get_dummies(df_transformed, dtype=int, columns=["processor_brand"], prefix="processor_brand")
+    df_transformed = pd.get_dummies(df_transformed, dtype=int, columns=["processor_name"], prefix="processor_name")
+    df_transformed = pd.get_dummies(df_transformed, dtype=int, columns=["os"], prefix="os")
+    df_transformed = pd.get_dummies(df_transformed, dtype=int, columns=["weight"], prefix="weight")
+    df_transformed = pd.get_dummies(df_transformed, dtype=int, columns=["touchscreen"], prefix="touchscreen")
+    df_transformed = pd.get_dummies(df_transformed, dtype=int, columns=["ram_type"], prefix="ram_type")
+    df_transformed = pd.get_dummies(df_transformed, dtype=int, columns=["os_bit"], prefix="os_bit")
 
     logger.info('Export to csv file.')
 
