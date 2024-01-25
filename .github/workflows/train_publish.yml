@@ -49,7 +49,8 @@ jobs:
           git log -n 1 --pretty=format:%ae    # email
           git config user.name "$(git log -n 1 --pretty=format:%an)"
           git config user.email "$(git log -n 1 --pretty=format:%ae)"
-          gto -v register laptop-pricing-india --push
+          gto -v register laptop-pricing-india
+          git push origin --tags
 
       - name: Generating report
         env:
