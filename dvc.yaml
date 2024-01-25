@@ -29,7 +29,7 @@ stages:
 
 
 artifacts:
-  laptop-pricing:
+  laptop-pricing-india:
     path: models/model.pkl
     desc: Modelo para predição de preços de laptops.
     type: model
