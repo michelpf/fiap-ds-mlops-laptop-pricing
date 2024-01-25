@@ -29,7 +29,7 @@ stages:
 
 
 artifacts:
-  aptop-pricing:
+  laptop-pricing:
     path: models/model.pkl
     desc: Modelo para predição de preços de laptops.
     type: model
