@@ -29,18 +29,13 @@ stages:
 
 
 artifacts:
-  laptop-pricing:
-    path: models/model.pkl
-    type: model
-    desc: Model to predict laptop pricing.
-    labels:
-    - regression
   fiap-laptop-pricing:
     path: models/model.pkl
     desc: Modelo para predição de preços de laptops.
     type: model
     labels:
     - regression
+    - pricing
 metrics:
 - dvclive/metrics.json
 plots:
