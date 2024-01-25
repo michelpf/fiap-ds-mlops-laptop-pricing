@@ -31,7 +31,7 @@ stages:
 artifacts:
   laptop-pricing-india:
     path: models/model.pkl
-    desc: Modelo para predição de preços de laptops (baseado em Rupee indiano).
+    desc: Modelo para predição de preços de laptops baseado em Rupee indiano.
     type: model
     labels:
     - regression
