@@ -40,6 +40,10 @@ jobs:
         run: |
           dvc pull
           dvc repro 
+      
+      - name: Registering
+        run: |
+          gto -v register laptop-pricing-india --push
 
       - name: Generating report
         env:
