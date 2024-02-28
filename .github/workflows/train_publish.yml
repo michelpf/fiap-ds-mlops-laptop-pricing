@@ -6,6 +6,7 @@ on:
   
 jobs:
   obtendo-artefatos:
+    name: "Obtendo artefatos"
     runs-on: ubuntu-latest
 
     permissions:
@@ -31,6 +32,8 @@ jobs:
           aws-region: us-east-1
     
   instalando-dependencias:
+    name: "Instalando dependências"
+    needs: obtendo-artefatos
     runs-on: ubuntu-latest
     
     steps:
@@ -41,6 +44,8 @@ jobs:
         uses: iterative/setup-cml@v3
   
   executando_pipeline_ml:
+    name: "Executando pipeline de machine learning"
+    needs: instalando-dependencias
     runs-on: ubuntu-latest
     
     steps:
@@ -50,6 +55,8 @@ jobs:
           dvc repro 
   
   registrando-modelo:
+    name: "Registrando o modelo"
+    needs: executando_pipeline_ml
     runs-on: ubuntu-latest
     
     steps:
