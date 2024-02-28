@@ -6,6 +6,7 @@ on:
   
 jobs:
   train_evaluate_model:
+    name: "Treinamento e Registro de Novo Modelo"
     runs-on: ubuntu-latest
 
     permissions:
