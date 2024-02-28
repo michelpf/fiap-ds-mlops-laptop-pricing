@@ -5,14 +5,14 @@ on:
     branches: [ "master" ]
   
 jobs:
-  obtendo-artefatos:
-    name: "Obtendo artefatos"
+  train_evaluate_model:
     runs-on: ubuntu-latest
 
     permissions:
       id-token: write
       contents: write
       pull-requests: write
+      
 
     steps:
       - name: Configure Python environment
@@ -30,36 +30,18 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::989944764342:role/GithubActionsRole
           aws-region: us-east-1
-    
-  instalando-dependencias:
-    name: "Instalando dependências"
-    needs: obtendo-artefatos
-    runs-on: ubuntu-latest
-    
-    steps:
+      
       - name: Install dependencies
         run: pip install -r requirements.txt
       
       - name: Install DVC library
         uses: iterative/setup-cml@v3
-  
-  executando_pipeline_ml:
-    name: "Executando pipeline de machine learning"
-    needs: instalando-dependencias
-    runs-on: ubuntu-latest
-    
-    steps:
+
       - name: Training
         run: |
           dvc pull
           dvc repro 
-  
-  registrando-modelo:
-    name: "Registrando o modelo"
-    needs: executando_pipeline_ml
-    runs-on: ubuntu-latest
-    
-    steps:
+      
       - name: Registering
         run: |
           git log -n 1 --pretty=format:%an    # username
@@ -80,5 +62,3 @@ jobs:
           
           # Add figure to the report
           echo "![](https://raw.githubusercontent.com/michelpf/fiap-ds-mlops-laptop-pricing/master/reports/figures/true_vs_predicted.png)"  >> $GITHUB_STEP_SUMMARY
-
-          
