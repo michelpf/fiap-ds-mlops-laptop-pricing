@@ -5,14 +5,13 @@ on:
     branches: [ "master" ]
   
 jobs:
-  train_evaluate_model:
+  obtendo-artefatos:
     runs-on: ubuntu-latest
 
     permissions:
       id-token: write
       contents: write
       pull-requests: write
-      
 
     steps:
       - name: Configure Python environment
@@ -30,19 +29,30 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::989944764342:role/GithubActionsRole
           aws-region: us-east-1
-      
+    
+  instalando-dependencias:
+    runs-on: ubuntu-latest
+    
+    steps:
       - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
+        run: pip install -r requirements.txt
       
       - name: Install DVC library
         uses: iterative/setup-cml@v3
-
+  
+  executando_pipeline_ml:
+    runs-on: ubuntu-latest
+    
+    steps:
       - name: Training
         run: |
           dvc pull
           dvc repro 
-      
+  
+  registrando-modelo:
+    runs-on: ubuntu-latest
+    
+    steps:
       - name: Registering
         run: |
           git log -n 1 --pretty=format:%an    # username
