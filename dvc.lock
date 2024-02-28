@@ -17,16 +17,17 @@ stages:
       md5: c9948ee0457a3b0329dddec9780886ff
       size: 55115
   train:
-    cmd: python -m src.models.train_model data/processed/laptop-pricing.csv models/model.pkl
+    cmd: python -m src.models.train_model data/processed/laptop-pricing-features.csv
+      models/model.pkl
     deps:
-    - path: data/processed/laptop-pricing.csv
+    - path: data/processed/laptop-pricing-features.csv
       hash: md5
-      md5: c9948ee0457a3b0329dddec9780886ff
-      size: 55115
+      md5: 8eda70061bca1b2ba318d4981f55f359
+      size: 54335
     - path: src/models/train_model.py
       hash: md5
-      md5: d53eb59bf8221b32d143a5f7f04f66a3
-      size: 3315
+      md5: 1483c7c002ea03d4d3ce5cec2831feb4
+      size: 3219
     outs:
     - path: models/model.pkl
       hash: md5
@@ -37,8 +38,8 @@ stages:
     deps:
     - path: src/data/get_data.py
       hash: md5
-      md5: 2349c0837de772e4d42209e72d4814c7
-      size: 1259
+      md5: 0ef74c18ad876927bc4e58a36164562a
+      size: 1218
     outs:
     - path: data/raw/laptopPrice.csv
       hash: md5
@@ -51,3 +52,35 @@ stages:
       hash: md5
       md5: 67f8622299b6bfaa895167a2aa7e9a9f
       size: 991690
+  process_dataset:
+    cmd: python -m src.data.make_dataset data/raw/laptopPrice.csv data/processed/laptop-pricing.csv
+    deps:
+    - path: data/raw/laptopPrice.csv
+      hash: md5
+      md5: d24a79d72406369abae616bafc2545eb
+      size: 93007
+    - path: src/data/make_dataset.py
+      hash: md5
+      md5: 7705759d585f337f2c8498d51c773660
+      size: 4592
+    outs:
+    - path: data/processed/laptop-pricing.csv
+      hash: md5
+      md5: 046d448000371d297fd47ef7a03da2dd
+      size: 53020
+  process_features:
+    cmd: python -m src.data.make_features data/processed/laptop-pricing.csv data/processed/laptop-pricing-features.csv
+    deps:
+    - path: data/processed/laptop-pricing.csv
+      hash: md5
+      md5: 046d448000371d297fd47ef7a03da2dd
+      size: 53020
+    - path: src/data/make_features.py
+      hash: md5
+      md5: cbe115f118f7581f943f4bbe4bb9c2e3
+      size: 2165
+    outs:
+    - path: data/processed/laptop-pricing-features.csv
+      hash: md5
+      md5: 8eda70061bca1b2ba318d4981f55f359
+      size: 54335

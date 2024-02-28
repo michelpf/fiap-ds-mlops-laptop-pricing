@@ -6,7 +6,7 @@ stages:
     outs:
     - data/raw/laptopPrice.csv
 
-  process:
+  process_dataset:
     cmd: python -m src.data.make_dataset data/raw/laptopPrice.csv data/processed/laptop-pricing.csv
     deps:
     - src/data/make_dataset.py
@@ -14,11 +14,20 @@ stages:
     outs:
     - data/processed/laptop-pricing.csv
 
+  process_features:
+    cmd: python -m src.data.make_features data/processed/laptop-pricing.csv data/processed/laptop-pricing-features.csv
+    deps:
+    - src/data/make_features.py
+    - data/processed/laptop-pricing.csv
+    outs:
+    - data/processed/laptop-pricing-features.csv
+
   train:
-    cmd: python -m src.models.train_model data/processed/laptop-pricing.csv models/model.pkl
+    cmd: python -m src.models.train_model data/processed/laptop-pricing-features.csv
+      models/model.pkl
     deps:
     - src/models/train_model.py
-    - data/processed/laptop-pricing.csv
+    - data/processed/laptop-pricing-features.csv
     outs:
     - models/model.pkl
 
@@ -38,9 +47,14 @@ artifacts:
     - pricing
     - laptop
 
+  laptop-pricing:
+    path: models/model.pkl
+    type: model
+    desc: Model to predict laptop pricing.
+    labels:
+    - regression
 metrics:
 - dvclive/metrics.json
-
 plots:
 - dvclive/plots/metrics:
     x: step
