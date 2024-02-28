@@ -1,4 +1,4 @@
-name: Notifiy deployment of new api version
+name: Notificação de implantação para API
 
 on:
   push:

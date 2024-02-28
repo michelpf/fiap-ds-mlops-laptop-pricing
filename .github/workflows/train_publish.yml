@@ -1,4 +1,4 @@
-name: Train the model then publish to be versioned
+name: Treinamento e publicação de modelo
 
 on: 
   push:

@@ -1,4 +1,5 @@
-name: Train the proposed model for approval
+name: Treinamento de modelo proposto
+
 on: 
   pull_request:
   
