@@ -4,6 +4,7 @@ on:
   
 jobs:
   train_evaluate_model:
+    name: "Avaliação de Modelo"
     runs-on: ubuntu-latest
 
     permissions:
