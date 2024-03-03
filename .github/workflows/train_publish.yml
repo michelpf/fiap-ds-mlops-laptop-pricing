@@ -33,9 +33,6 @@ jobs:
       
       - name: Install dependencies
         run: pip install -r requirements.txt
-      
-      - name: Install DVC library
-        uses: iterative/setup-cml@v3
 
       - name: Training
         run: |
