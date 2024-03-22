@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Deploy Stage
-        uses: actions/github-script@v6
+        uses: actions/github-script@v5
         with:
             github-token: ${{ secrets.ACCESS_TOKEN }}
             script: |
