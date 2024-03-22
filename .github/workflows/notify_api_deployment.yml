@@ -1,6 +1,7 @@
 name: Notificação de implantação para API
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - '*'
