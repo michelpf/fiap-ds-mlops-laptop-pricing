@@ -48,7 +48,7 @@ def main(input_filepath, output_filepath):
 
         logger.info('Model is based on Linear regression.')
         model = xgb.XGBRegressor(learning_rate = 0.01,
-                           n_estimators  = 700,
+                           n_estimators  = 600,
                            max_depth     = 4,
                            eval_metric='mae')
 
