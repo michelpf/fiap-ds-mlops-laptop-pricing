@@ -50,6 +50,8 @@ jobs:
           git push origin --tags
 
       - name: Notificando API
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
         run: |
           latest_tag=$(git describe --tags --abbrev=0)
           gh workflow run notify_api_deployment.yml --ref $latest_tag
