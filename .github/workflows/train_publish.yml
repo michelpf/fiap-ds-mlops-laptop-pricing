@@ -41,6 +41,7 @@ jobs:
       
       - name: Registering
         run: |
+          git pull --tags
           git log -n 1 --pretty=format:%an    # username
           git log -n 1 --pretty=format:%ae    # email
           git config user.name "$(git log -n 1 --pretty=format:%an)"
