@@ -5,6 +5,7 @@ on:
   push:
     tags:
       - '*'
+      
 
 jobs:
   notify_api_repository:
