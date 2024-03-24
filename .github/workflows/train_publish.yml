@@ -40,8 +40,6 @@ jobs:
           dvc repro 
       
       - name: Registering
-        env:
-          GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
           git log -n 1 --pretty=format:%an    # username
           git log -n 1 --pretty=format:%ae    # email
@@ -50,6 +48,13 @@ jobs:
           gto register laptop-pricing-india
           gto assign laptop-pricing-india --stage prod
           git push origin --tags
+
+      - name: Notificando API
+        env:
+          GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: |
+          latest_tag=$(git describe --tags --abbrev=0)
+          gh workflow run notify_api_deployment.yml --ref $latest_tag
 
       - name: Generating report
         env:
