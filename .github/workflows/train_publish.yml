@@ -41,14 +41,13 @@ jobs:
       
       - name: Registering
         run: |
-          git pull --tags
           git log -n 1 --pretty=format:%an    # username
           git log -n 1 --pretty=format:%ae    # email
           git config user.name "$(git log -n 1 --pretty=format:%an)"
           git config user.email "$(git log -n 1 --pretty=format:%ae)"
           gto register laptop-pricing-india
           gto assign laptop-pricing-india --stage prod
-          git push origin --tags
+
 
       - name: Generating report
         env:
