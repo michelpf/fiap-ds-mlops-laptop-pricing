@@ -13,7 +13,6 @@ jobs:
       id-token: write
       contents: write
       
-
     steps:
       - name: Configure Python environment
         uses: actions/setup-python@v5
